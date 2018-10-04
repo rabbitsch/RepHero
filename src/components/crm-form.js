@@ -33,8 +33,4 @@ export class CrmForm extends React.Component{
 
 }
 
-export default reduxForm({
-    form: 'contact'
-    // onSubmitFail: (errors, dispatch) =>
-        // dispatch(f('contact', Object.keys(errors)[0]))
-})(CrmForm);
+export default reduxForm({form: 'contact'})(CrmForm);
