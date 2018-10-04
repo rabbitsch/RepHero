@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import NavBar from './components/navigation';
+import {NavBar} from './components/navigation';
 import CrmForm from './components/crm-form';
-import logo from './logo.svg';
+
 import './App.css';
 
 class App extends Component {

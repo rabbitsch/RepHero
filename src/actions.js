@@ -1,4 +1,4 @@
-import {search} from './doctorData';
+import {doctorData} from './doctorData';
 
 
 
@@ -23,7 +23,7 @@ export const searchPracticeError = error => ({
 
 export const searchPractice = practice => dispatch => {
   dispatch(searchPracticeRequest())
-  search(practice)
+  doctorData(practice)
   .then(info => searchPracticeSuccess(info))
   .catch(error => searchPracticeError(error))
 }

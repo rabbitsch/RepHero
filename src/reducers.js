@@ -10,7 +10,7 @@ const initialState = {
   error: null
 };
 
-export function practiceReducer(state = initialState, action){
+export default function practiceReducer(state = initialState, action){
   if(action.type === SEARCH_PRACTICE_REQUEST){
     return Object.assign({},state,{
       loading:true,
