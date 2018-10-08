@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { searchPractice } from '../actions';
+import { searchPractice } from '../actions/actions-doc';
 import store from '../store';
 
  export const Input = (props) => {

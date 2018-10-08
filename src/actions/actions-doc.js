@@ -1,4 +1,4 @@
-import {doctorData} from './doctorData';
+import {doctorData} from '../doctorData';
 
 
 

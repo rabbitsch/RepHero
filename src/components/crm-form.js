@@ -22,7 +22,6 @@ export class CrmForm extends React.Component{
       <form>
         <Field name="officename" type="text" label="officename" />
         <Field name="date" type="text"  label="date"/>
-        <Field name="decisionmaker" type="text"  label="decisionmaker" />
         <Field name="goals" element="textarea"  label="goals"/>
         <Field name="outcome" element="textarea"  label="outcome" />
         <Field name="nextgoal" element="textarea"  label="nextgoal" />

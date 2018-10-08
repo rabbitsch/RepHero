@@ -2,7 +2,7 @@ import {
   SEARCH_PRACTICE_ERROR,
   SEARCH_PRACTICE_REQUEST,
   SEARCH_PRACTICE_SUCCESS
-} from './actions';
+} from './actions/actions-doc';
 
 const initialState = {
   practice: [],

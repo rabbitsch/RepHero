@@ -8,6 +8,12 @@ import CrmForm from './components/crm-form';
 import './App.css';
 
 export class App extends React.Component {
+
+  renderResult(props){
+    const myResult = this.props
+    console.log(myResult,'this is my result on renderResult')
+  }
+
   render() {
     return (
       <div className="App">
