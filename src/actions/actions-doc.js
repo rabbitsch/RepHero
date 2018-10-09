@@ -22,9 +22,12 @@ export const searchPracticeError = error => ({
 });
 
 export const searchPractice = practice => dispatch => {
-  dispatch(searchPracticeRequest())
+  // dispatch(searchPracticeRequest())
   doctorData(practice)
-  .then(info => searchPracticeSuccess(info))
+  .then(info =>{
+    console.log(info,'this is my action search practice info')
+    dispatch(searchPracticeSuccess(info))
+  })
   .catch(error => searchPracticeError(error))
 }
 

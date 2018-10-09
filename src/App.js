@@ -2,29 +2,22 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {NavBar} from './components/navigation';
 import Input from './components/input';
+import RenderDocData from './components/doctorinfo'
 import CrmForm from './components/crm-form';
-
 
 import './App.css';
 
 export class App extends React.Component {
-
-  renderResult(props){
-    const myResult = this.props
-    console.log(myResult,'this is my result on renderResult')
-  }
-
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <h1>Welcome to RepHero</h1>
-            <NavBar />
+          <NavBar />
         </header>
         <main>
           <Input />
-
-          <p> Test</p>
+          <RenderDocData />
         </main>
       </div>
     );
@@ -34,13 +27,14 @@ export class App extends React.Component {
 
 App.defaultProps =({
   practice: []
-
 })
 
 // const mapDispatchToProps = dispatch =>{
-//
+//   return {
+//     getDocData: () => getDocData(dispatch)
+//   };
 // }
-//
+
 const mapStateToProps = state => ({
   practice: state.practice
 

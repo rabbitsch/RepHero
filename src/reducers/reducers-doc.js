@@ -2,7 +2,7 @@ import {
   SEARCH_PRACTICE_ERROR,
   SEARCH_PRACTICE_REQUEST,
   SEARCH_PRACTICE_SUCCESS
-} from './actions/actions-doc';
+} from '../actions/actions-doc';
 
 const initialState = {
   practice: [],
@@ -19,6 +19,7 @@ export const practiceReducer = (state = initialState, action)=>{
       error:null
     })
   }
+
   else if(action.type === SEARCH_PRACTICE_SUCCESS){
     return Object.assign({},state,{
       practice: action.practice,
@@ -33,4 +34,5 @@ export const practiceReducer = (state = initialState, action)=>{
     })
   }
   return state;
+
 }

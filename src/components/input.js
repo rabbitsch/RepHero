@@ -8,21 +8,18 @@ import store from '../store';
   const handleSubmit = (event) => {
     event.preventDefault()
 
-
     const newSearch = event.target.elements.search.value
     console.log(newSearch, 'this is new search from input')
     const submitSearch = searchPractice(newSearch)
     store.dispatch(submitSearch)
-
   }
 
-  return(
+  return (
     <div className="inputface">
       <form onSubmit={handleSubmit}>
         <input type="text" name='search' onChange={props.onChange} placeholder="Type Targeted Medical Practice Here" />
         <button type='submit'>Submit Your Answer</button>
-    </form>
-
+      </form>
     </div>
   )
 }
