@@ -47,7 +47,6 @@ const doctorData = search => {
       console.log(data1);
     }
   }).then(res => {
-    console.log(res, "this is my doctor data");
     return res.json(); //THIS is what brought in the DATA
   });
 };

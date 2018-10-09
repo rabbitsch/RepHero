@@ -2,7 +2,7 @@ import {
   SEARCH_PRACTICE_ERROR,
   SEARCH_PRACTICE_REQUEST,
   SEARCH_PRACTICE_SUCCESS
-} from '../actions/actions-doc';
+} from "../actions/actions-doc";
 
 const initialState = {
   practice: [],
@@ -10,29 +10,23 @@ const initialState = {
   error: null
 };
 
-export const practiceReducer = (state = initialState, action)=>{
-  console.log(action, 'this is my practice reducer talking')
-
-  if(action.type === SEARCH_PRACTICE_REQUEST){
-    return Object.assign({},state,{
-      loading:true,
-      error:null
-    })
-  }
-
-  else if(action.type === SEARCH_PRACTICE_SUCCESS){
-    return Object.assign({},state,{
+export const practiceReducer = (state = initialState, action) => {
+  if (action.type === SEARCH_PRACTICE_REQUEST) {
+    return Object.assign({}, state, {
+      loading: true,
+      error: null
+    });
+  } else if (action.type === SEARCH_PRACTICE_SUCCESS) {
+    return Object.assign({}, state, {
       practice: action.practice,
-      loading:false,
-      error:null
-    })
-  }
-  else if(action.type === SEARCH_PRACTICE_ERROR){
-    return Object.assign({},state,{
+      loading: false,
+      error: null
+    });
+  } else if (action.type === SEARCH_PRACTICE_ERROR) {
+    return Object.assign({}, state, {
       error: action.error,
-      loading:false
-    })
+      loading: false
+    });
   }
   return state;
-
-}
+};

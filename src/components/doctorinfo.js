@@ -9,44 +9,50 @@ export const RenderDocData = props => {
   const { data } = props.practice;
 
   if (!data) {
-    return <p>No data.</p>;
+    return <p>Search for Doctor Information.</p>;
   }
+  console.log(data, "this is my data");
 
   return (
-    <div>
+    <div className="doc-container">
       <ul>
         {data.map(item => (
-          <li key={item.uid}>{item.name}</li>
+          <li key={item.uid}>
+            <h2>{item.name}</h2>
+            <div>
+              {item.doctors.map(item => (
+                <li key={item.uid}>
+                  <h4>
+                    {item.profile.first_name} {item.profile.last_name},{" "}
+                    {item.profile.title}
+                  </h4>
+                  <p>NPI: {item.npi}</p>
+                </li>
+              ))}
+            </div>
+
+            <p>{item.visit_address.street}</p>
+            <p>
+              {item.visit_address.city}, {item.visit_address.state_long},{" "}
+              {item.visit_address.zip}
+            </p>
+            <div>
+              {item.phones.map(item => (
+                <li key={item.uid}>
+                  <p>
+                    {item.type}: {item.number}
+                  </p>
+                </li>
+              ))}
+            </div>
+          </li>
         ))}
       </ul>
     </div>
   );
 };
 
-//
-// export const Content = (props) => {
-//   console.log(props, "before my guess on display cont")
-//   console.log(store.getState(),' store from my display cont')
-//   const guesses = props.guesses.map((guess, index) =>(<li key={index}>{guess}</li>));
-//   console.log(guesses, 'from display cont')
-//
-//   return (
-//     <div>
-//       <ul className="contentDisp">
-//         {guesses}
-//         <li>{props.feedback}</li>
-//       </ul>
-//     </div>
-//   )
-// }
-
-// RenderDocData.defaultProps =({
-//   practice: []
-//
-// })
-
 const mapStateToProps = state => {
-  console.log(state, "this my state");
   return { practice: state.practice };
 };
 
