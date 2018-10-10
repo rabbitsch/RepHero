@@ -1,0 +1,9 @@
+.doc-container {
+  border-style: solid;
+  border-width: medium;
+  border-color: black;
+}
+
+li {
+  list-style-type: none;
+}
