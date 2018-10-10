@@ -1,33 +1,27 @@
-import React from 'react';
-import thunk from 'redux-thunk';
+import React from "react";
+import thunk from "redux-thunk";
+import axios from "axios";
+import { getCrmSuccess } from "./actions/actions-crm";
+import store from "./store";
 
+const { API_BASE_URL } = require("./config");
 
-const {API_BASE_URL} = require('../config');
+const url = `${API_BASE_URL}/api/crm`;
 
-export const fetchGetAll = dispatch => {
-    fetch(`${API_BASE_URL}/api/crm`).then(res => {
-        if (!res.ok) {
-            return Promise.reject(res.statusText);
-        }
-        return res.json();
-    }).then(getAll => {
-        dispatch(fetchUserProfileSuccess(getAll));
-    }).catch(err => dispatch(fetchUserProfileError(err)));
+const crmData = event => {
+  return axios
+    .get(`${API_BASE_URL}/api/crm`)
+    .then(res => res.data)
+    .then(crm => store.dispatch(getCrmSuccess(crm)));
 };
 
-const crmData = () => {
-  return fetch('api/crm',{
-    method:'GET',
-    header:{
-      'Content-Type':'application/JSON'
-    }
-  }).then(results=> results.data.map(item => item.name))
+// axios
+//   .get(`${API_BASE_URL}/api/crm`)
+//   .then(res => {
+//     res.json(res.data);
+//   })
+//   .catch(error => {
+//     console.log(error);
+//   });
 
-  .catch(error=>{
-    console.log(error)
-    // res.status(400)
-  })
-}
-
-
-export {crmData};
+export { crmData };
