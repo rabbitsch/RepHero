@@ -17,7 +17,7 @@ export const RenderDocData = props => {
 
   return (
     <section>
-      <div className="row">
+      <div>
         <div className="col-5">
           <div className="doc-container">
             <ul>

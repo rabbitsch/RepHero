@@ -4,8 +4,10 @@ import { NavBar } from "./components/navigation";
 import Input from "./components/input";
 import GetCrm from "./components/crmGetList";
 import RenderDocData from "./components/doctorinfo";
+import RenderCrm from "./components/renderCrm";
 import CrmForm from "./components/crm-form";
 
+import "./grid.css";
 import "./App.css";
 
 export class App extends React.Component {
@@ -19,7 +21,10 @@ export class App extends React.Component {
         <main>
           <GetCrm />
           <Input />
-          <RenderDocData />
+          <div className="row">
+            <RenderDocData />
+            <RenderCrm />
+          </div>
         </main>
       </div>
     );

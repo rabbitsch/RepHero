@@ -6,11 +6,11 @@ import store from "./store";
 
 const { API_BASE_URL } = require("./config");
 
-const url = `${API_BASE_URL}/api/crm`;
+const url = `${API_BASE_URL}`;
 
 const crmData = event => {
   return axios
-    .get(`${API_BASE_URL}/api/crm`)
+    .get(`${API_BASE_URL}/api/visits`)
     .then(res => res.data)
     .then(crm => store.dispatch(getCrmSuccess(crm)));
 };
