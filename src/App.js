@@ -21,6 +21,7 @@ export class App extends React.Component {
         <main>
           <GetCrm />
           <Input />
+          <CrmForm />
           <div className="row">
             <RenderDocData />
             <RenderCrm />

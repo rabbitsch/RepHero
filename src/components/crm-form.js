@@ -1,32 +1,27 @@
 import React from "react";
 import { reduxForm, Field } from "redux-form";
 
-// export class CrmForm extends React.Component{
-//   constructor(props){
-//     super(props);
-//     this.state ={test:[], loading:false}
-//   }
-export let CrmForm = () => {
+export let CrmForm = ({ handleSubmit }) => {
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div>
         <label>Office Name</label>
         <Field
           name="officename"
-          component="forminput"
+          component="input"
           type="text"
           label="officename"
         />
       </div>
       <div>
         <label>Date</label>
-        <Field name="date" component="forminput" type="text" label="date" />
+        <Field name="date" component="input" type="text" label="date" />
       </div>
       <div>
         <label>Goals</label>
         <Field
           name="goals"
-          component="forminput"
+          component="input"
           element="textarea"
           label="goals"
         />
@@ -35,7 +30,7 @@ export let CrmForm = () => {
         <label>Outcome</label>
         <Field
           name="outcome"
-          component="forminput"
+          component="input"
           element="textarea"
           label="outcome"
         />
@@ -44,7 +39,7 @@ export let CrmForm = () => {
         <label>NextGoal</label>
         <Field
           name="nextgoal"
-          component="forminput"
+          component="input"
           element="textarea"
           label="nextgoal"
         />
