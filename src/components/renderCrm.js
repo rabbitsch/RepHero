@@ -14,17 +14,20 @@ export const RenderCrm = props => {
   console.log(extracted, "this is extracted");
 
   return (
-    <div className="row">
+    <div>
       <div className="col-5 offset-1">
         <div className="crmContainer">
           <ul>
             {extracted.map(item => (
               <li key={item.uid}>
-                <h2>{item.office}</h2>
-                <h3>{item.date}</h3>
-                <p>{item.goals}</p>
-                <p>{item.outcome}</p>
-                <p>{item.nextgoals}</p>
+                <h2>Office Name: {item.office}</h2>
+                <h3>Date of visit: {item.date}</h3>
+                <p>Goals for visit: {item.goals}</p>
+                <p>Outcome: {item.outcome}</p>
+                <p>
+                  Goals for next visit:
+                  {item.nextgoals}
+                </p>
               </li>
             ))}{" "}
           </ul>
@@ -34,7 +37,7 @@ export const RenderCrm = props => {
   );
 };
 const mapStateToProps = state => {
-  return { crm: state.crm };
+  return { crm: state.reducer.crm };
 };
 
 export default connect(mapStateToProps)(RenderCrm);

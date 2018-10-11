@@ -1,35 +1,57 @@
-import React from 'react';
-import {reduxForm, Field} from 'redux-form';
+import React from "react";
+import { reduxForm, Field } from "redux-form";
 
-export class CrmForm extends React.Component{
-  // onSubmit(value){
-  //   return fetch('/api/prac',{
-  //     method: 'POST',
-  //     body: JSON.Stringify(value),
-  //     headers:{
-  //       'Content-Type': 'application/JSON'
-  //     },
-  //
-  //   })
-  //   .then(res => {
-  //     if(
-  //       res.headers.has('Content-Type')
-  //     )
-  //   })
+// export class CrmForm extends React.Component{
+//   constructor(props){
+//     super(props);
+//     this.state ={test:[], loading:false}
+//   }
+export let CrmForm = () => {
+  return (
+    <form>
+      <div>
+        <label>Office Name</label>
+        <Field
+          name="officename"
+          component="forminput"
+          type="text"
+          label="officename"
+        />
+      </div>
+      <div>
+        <label>Date</label>
+        <Field name="date" component="forminput" type="text" label="date" />
+      </div>
+      <div>
+        <label>Goals</label>
+        <Field
+          name="goals"
+          component="forminput"
+          element="textarea"
+          label="goals"
+        />
+      </div>
+      <div>
+        <label>Outcome</label>
+        <Field
+          name="outcome"
+          component="forminput"
+          element="textarea"
+          label="outcome"
+        />
+      </div>
+      <div>
+        <label>NextGoal</label>
+        <Field
+          name="nextgoal"
+          component="forminput"
+          element="textarea"
+          label="nextgoal"
+        />
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  );
+};
 
-  render(){
-    return(
-      <form>
-        <Field name="officename" type="text" label="officename" />
-        <Field name="date" type="text"  label="date"/>
-        <Field name="goals" element="textarea"  label="goals"/>
-        <Field name="outcome" element="textarea"  label="outcome" />
-        <Field name="nextgoal" element="textarea"  label="nextgoal" />
-        <button type="submit">Submit</button>
-      </form>
-    )
-  }
-
-}
-
-export default reduxForm({form: 'contact'})(CrmForm);
+export default reduxForm({ form: "contact" })(CrmForm);

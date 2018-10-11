@@ -31,7 +31,7 @@ export const GetCrm = props => {
 };
 
 const mapStateToProps = state => {
-  return { crm: state.crm };
+  return { crm: state.reducer.crm };
 };
 
 export default connect(mapStateToProps)(GetCrm);

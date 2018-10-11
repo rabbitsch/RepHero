@@ -7,8 +7,10 @@ import "../grid.css";
 export const RenderDocData = props => {
   console.log({ props });
   // return <p>Soon.</p>;
-
+  console.log(props, "this is my props");
   const { data } = props.practice;
+
+  console.log(data, "this is my data from renderdoc");
 
   if (!data) {
     return <p>Search for Doctor Information.</p>;
@@ -61,7 +63,7 @@ export const RenderDocData = props => {
 };
 
 const mapStateToProps = state => {
-  return { practice: state.practice };
+  return { practice: state.reducer.practice };
 };
 
 export default connect(mapStateToProps)(RenderDocData);
