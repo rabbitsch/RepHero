@@ -7,12 +7,7 @@ export let CrmForm = ({ handleSubmit }) => {
     <form onSubmit={handleSubmit(postData)}>
       <div>
         <label>Office Name</label>
-        <Field
-          name="officename"
-          component="input"
-          type="text"
-          label="officename"
-        />
+        <Field name="office" component="input" type="text" label="office" />
       </div>
       <div>
         <label>Date</label>
@@ -39,10 +34,10 @@ export let CrmForm = ({ handleSubmit }) => {
       <div>
         <label>NextGoal</label>
         <Field
-          name="nextgoal"
+          name="nextgoals"
           component="textarea"
           element="textarea"
-          label="nextgoal"
+          label="nextgoals"
         />
       </div>
       <button type="submit">Submit</button>
