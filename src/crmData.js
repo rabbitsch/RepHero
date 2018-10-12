@@ -15,13 +15,8 @@ const crmData = event => {
     .then(crm => store.dispatch(getCrmSuccess(crm)));
 };
 
-// axios
-//   .get(`${API_BASE_URL}/api/crm`)
-//   .then(res => {
-//     res.json(res.data);
-//   })
-//   .catch(error => {
-//     console.log(error);
-//   });
+const postData = data => {
+  return axios.post(`${API_BASE_URL}/api/visits`, data).then(res => res.data);
+};
 
-export { crmData };
+export { crmData, postData };

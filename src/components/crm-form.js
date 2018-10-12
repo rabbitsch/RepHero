@@ -1,9 +1,10 @@
 import React from "react";
+import { postData } from "../crmData";
 import { reduxForm, Field } from "redux-form";
 
 export let CrmForm = ({ handleSubmit }) => {
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit(postData)}>
       <div>
         <label>Office Name</label>
         <Field
@@ -21,7 +22,7 @@ export let CrmForm = ({ handleSubmit }) => {
         <label>Goals</label>
         <Field
           name="goals"
-          component="input"
+          component="textarea"
           element="textarea"
           label="goals"
         />
@@ -30,7 +31,7 @@ export let CrmForm = ({ handleSubmit }) => {
         <label>Outcome</label>
         <Field
           name="outcome"
-          component="input"
+          component="textarea"
           element="textarea"
           label="outcome"
         />
@@ -39,7 +40,7 @@ export let CrmForm = ({ handleSubmit }) => {
         <label>NextGoal</label>
         <Field
           name="nextgoal"
-          component="input"
+          component="textarea"
           element="textarea"
           label="nextgoal"
         />
