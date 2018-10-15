@@ -1,5 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
+import CrmForm from "./crm-form";
+import { deleteData } from "../apiClients";
 import store from "../store";
 import "../grid.css";
 
@@ -15,8 +17,9 @@ export const RenderCrm = props => {
 
   return (
     <div>
-      <div className="col-5 offset-1">
+      <div className="col-5">
         <div className="crmContainer">
+          <CrmForm />
           <ul>
             {extracted.map(item => (
               <li key={item.uid}>
@@ -28,6 +31,13 @@ export const RenderCrm = props => {
                   Goals for next visit:
                   {item.nextgoals}
                 </p>
+                <button
+                  onClick={event => {
+                    return deleteData(item.id);
+                  }}
+                >
+                  Delete
+                </button>
               </li>
             ))}{" "}
           </ul>

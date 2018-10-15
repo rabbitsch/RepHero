@@ -14,7 +14,6 @@ const initialState = {
 };
 
 export const practiceReducer = (state = initialState, action) => {
-  console.log(action, "this is my reducer listening");
   if (action.type === SEARCH_PRACTICE_REQUEST) {
     return Object.assign({}, state, {
       loading: true,
@@ -38,6 +37,6 @@ export const practiceReducer = (state = initialState, action) => {
       error: null
     });
   }
-  console.log(state, "this is my state");
+
   return state;
 };

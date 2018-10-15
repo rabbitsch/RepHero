@@ -20,7 +20,7 @@ export const RenderDocData = props => {
   return (
     <section>
       <div>
-        <div className="col-5">
+        <div className="col-5 offset-1">
           <div className="doc-container">
             <ul>
               {data.map(item => (
