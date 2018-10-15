@@ -1,11 +1,12 @@
 import React from "react";
 import { reduxForm, Field } from "redux-form";
+import { postRegData } from "../apiClients";
 
 const Register = ({ handleSubmit }) => {
   return (
     <div>
       <div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(postRegData)}>
           <div>
             <label>Username</label>
             <Field

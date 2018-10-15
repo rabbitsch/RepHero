@@ -1,11 +1,12 @@
 import React from "react";
 import { reduxForm, Field } from "redux-form";
+import { postLoginData } from "../apiClients";
 
 const Login = ({ handleSubmit }) => {
   return (
     <div>
       <div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(postLoginData)}>
           <div>
             <label>Username</label>
             <Field
@@ -30,19 +31,5 @@ const Login = ({ handleSubmit }) => {
     </div>
   );
 };
-
-// export const login = (username, password) => dispatch => {
-//     dispatch(authRequest());
-//     return (
-//         fetch(`${API_BASE_URL}/auth/login`, {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify({
-//                 username,
-//                 password
-//             })
-//         })
 
 export default reduxForm({ form: "contact" })(Login);
