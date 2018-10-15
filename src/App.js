@@ -10,6 +10,8 @@ import store from "./store";
 import axios from "axios";
 import { getCrmSuccess } from "./actions/actions-crm";
 import { getCrmRequest } from "./actions/actions-crm";
+import { Link, Route } from "react-router-dom";
+import LandingPage from "./components/landing-page";
 
 import "./grid.css";
 import "./App.css";
@@ -39,12 +41,7 @@ export class App extends React.Component {
           <h1>Welcome to RepHero</h1>
         </header>
         <main>
-          <Input />
-
-          <div className="row">
-            <RenderDocData />
-            <RenderCrm />
-          </div>
+          <Route path="/landing-page" component={LandingPage} />
         </main>
       </div>
     );
@@ -61,5 +58,4 @@ const mapStateToProps = state => ({
   crm: state.crm
 });
 
-//
 export default connect(mapStateToProps)(App);

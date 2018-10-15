@@ -1,35 +1,35 @@
 import React from "react";
 import { reduxForm, Field } from "redux-form";
 import { postLoginData } from "../apiClients";
+import "./landing-page.css";
 
-const Login = ({ handleSubmit }) => {
+export let Login = () => {
   return (
     <div>
-      <div>
-        <form onSubmit={handleSubmit(postLoginData)}>
-          <div>
-            <label>Username</label>
-            <Field
-              name="username"
-              component="input"
-              type="text"
-              label="username"
-            />
-          </div>
-          <div>
-            <label>Password</label>
-            <Field
-              name="password"
-              component="input"
-              type="text"
-              label="password"
-            />
-          </div>
-          <button type="submit">Login</button>
-        </form>
-      </div>
+      <form>
+        <div>
+          <label>Username:</label>
+          <Field
+            name="username"
+            component="input"
+            type="text"
+            label="username"
+          />
+        </div>
+        <div>
+          <label>Password:</label>
+          <Field
+            name="password"
+            component="input"
+            type="text"
+            label="password"
+          />
+        </div>
+        <button type="submit">Login</button>
+        <button>Sign Up</button>
+      </form>
     </div>
   );
 };
 
-export default reduxForm({ form: "contact" })(Login);
+export default reduxForm({ form: "login" })(Login);
