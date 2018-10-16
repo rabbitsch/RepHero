@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { NavBar } from "./components/navigation";
 import Input from "./components/input";
-import GetCrm from "./components/crmGetList";
+
 import RenderDocData from "./components/renderDoctorinfo";
 import RenderCrm from "./components/renderCrm";
 import CrmForm from "./components/crm-form";
@@ -12,9 +12,15 @@ import { getCrmSuccess } from "./actions/actions-crm";
 import { getCrmRequest } from "./actions/actions-crm";
 import { Link, Route } from "react-router-dom";
 import LandingPage from "./components/landing-page";
+import { library } from "@fortawesome/fontawesome-svg-core";
+
+import { faFire } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./grid.css";
 import "./App.css";
+
+library.add(faFire);
 const { API_BASE_URL } = require("./config");
 
 export class App extends React.Component {
@@ -37,16 +43,23 @@ export class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <style>
+          @import url('https://fonts.googleapis.com/css?family=Amethysta');
+        </style>
         <header className="App-header">
-          <h1>Welcome to RepHero</h1>
+          <h1>
+            Welcome to RepHero <FontAwesomeIcon icon="fire" />
+          </h1>
         </header>
         <main>
-          <Route path="/landing-page" component={LandingPage} />
+          <LandingPage />
         </main>
       </div>
     );
   }
 }
+
+//<Route path="/landing-page" component={LandingPage} />
 
 App.defaultProps = {
   practice: [],

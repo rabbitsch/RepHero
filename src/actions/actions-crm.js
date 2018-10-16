@@ -15,3 +15,17 @@ export const getCrmError = error => ({
   type: GET_CRM_ERROR,
   error
 });
+
+//Write the update and Delete CRM Action
+
+export const UPDATE_CRM = "UPDATE_CRM";
+export const update_Crm = crm => ({
+  type: UPDATE_CRM,
+  crm
+});
+
+export const DELETE_CRM = "DELETE_CRM";
+export const delete_Crm = crm => ({
+  type: DELETE_CRM,
+  crm
+});
