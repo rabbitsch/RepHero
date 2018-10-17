@@ -10,7 +10,8 @@ import store from "./store";
 import axios from "axios";
 import { getCrmSuccess } from "./actions/actions-crm";
 import { getCrmRequest } from "./actions/actions-crm";
-import { Link, Route } from "react-router-dom";
+// import { Link, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import LandingPage from "./components/landing-page";
 import { library } from "@fortawesome/fontawesome-svg-core";
 
@@ -52,7 +53,7 @@ export class App extends React.Component {
           </h1>
         </header>
         <main>
-          <LandingPage />
+          <Route path="/" component={LandingPage} />
         </main>
       </div>
     );

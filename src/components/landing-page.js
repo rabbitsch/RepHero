@@ -15,6 +15,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 library.add(faHeartbeat, faAmbulance, faStethoscope, faBrain);
 
 export class LandingPage extends React.Component {
+  onSubmit(values) {
+    // event.preventDefault();
+    console.log(values, "this is my values Landingpage and login");
+  }
   render() {
     return (
       <main>
@@ -54,7 +58,11 @@ export class LandingPage extends React.Component {
 
           <div className="col-5">
             <div className="login-face">
-              <Login />
+              <Login
+                onSubmit={this.props.handleSubmit(values => {
+                  this.onSubmit(values);
+                })}
+              />
             </div>
           </div>
         </div>

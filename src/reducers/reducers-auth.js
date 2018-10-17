@@ -8,6 +8,7 @@ const initialState = {
 };
 
 export const authReducer = (state = initialState, action) => {
+  console.log(action, "auth reducer");
   if (action.type === SET_AUTH_TOKEN) {
     return Object.assign({}, state, {
       authToken: action.authToken
@@ -19,4 +20,5 @@ export const authReducer = (state = initialState, action) => {
     });
   }
   return state;
+  console.log(state, "this is current state bra.. from auth reducer");
 };

@@ -3,8 +3,16 @@ import thunk from "redux-thunk";
 import axios from "axios";
 import { getCrmSuccess } from "./actions/actions-crm";
 import store from "./store";
+import { saveAuthToken } from "./localStorage";
+import { setAuthToken } from "./actions/actions-auth";
 
 const { API_BASE_URL } = require("./config");
+
+const storeAuthInfo = (authToken, dispatch) => {
+  console.log(authToken, "this is my authToken");
+  store.dispatch(setAuthToken(authToken));
+  saveAuthToken(authToken);
+};
 
 const url = `${API_BASE_URL}`;
 
@@ -38,7 +46,17 @@ const putData = data => {
 
 //Post Login info
 const postLoginData = data => {
-  return axios.post(`${API_BASE_URL}/login`, data).then(res => res.data);
+  console.log(data, "this is my post login data");
+  return (
+    axios
+      .post(`${API_BASE_URL}/api/login`, data)
+      // .then(res => res.data) //Set auth token here
+      .then(({ authToken }) => store.dispatch(setAuthToken(authToken)))
+      .then(res => res.json())
+      .catch(error => {
+        console.log(error);
+      })
+  );
 };
 
 //Post Registration info
