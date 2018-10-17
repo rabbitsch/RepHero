@@ -4,11 +4,13 @@ import { composeWithDevTools } from "redux-devtools-extension";
 
 import { reducer as formReducer } from "redux-form";
 import { practiceReducer } from "./reducers/reducers-doc";
+import { authReducer } from "./reducers/reducers-auth";
 
 export default createStore(
   combineReducers({
     form: formReducer,
-    reducer: practiceReducer
+    reducer: practiceReducer,
+    auth: authReducer
   }),
   composeWithDevTools(applyMiddleware(thunk))
 );

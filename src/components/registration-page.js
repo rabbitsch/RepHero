@@ -43,7 +43,7 @@ const Register = ({ handleSubmit }) => {
               label="lastname"
             />
           </div>
-          <button type="submit">Login</button>
+          <button type="submit">Submit</button>
         </form>
       </div>
     </div>

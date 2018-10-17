@@ -1,18 +1,21 @@
 import React from "react";
 import { reduxForm, Field } from "redux-form";
 import { postLoginData } from "../apiClients";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Register from "./registration-page";
 import store from "../store";
 import "./landing-page.css";
 
-//this is where my problem is!.. need to send both values at the same time..
 const handleSubmit = event => {
   event.preventDefault();
   const username = event.target.elements.username.value;
   const password = event.target.elements.password.value;
-  console.log(username, "this is the user value");
-  console.log(password, "this is the pass value");
   return postLoginData({ username, password });
 };
+
+// if (props.loggedIn) {
+//         return <Redirect to="/main" />;
+//     }
 
 export const Login = () => {
   return (
@@ -26,9 +29,22 @@ export const Login = () => {
         <Field name="password" component="input" type="text" label="password" />
       </div>
       <button type="submit">Login</button>
-      <button>Sign Up</button>
+      <button>
+        <Link to="/register">Sign up</Link>
+      </button>
     </form>
   );
 };
+
+{
+  /* <Router>
+  <div>
+    <button>
+      <Link to="/register">Sign up</Link>
+    </button>
+    <Route exact path="/register" component={Register} />
+  </div>
+</Router> */
+}
 
 export default reduxForm({ form: "login" })(Login);

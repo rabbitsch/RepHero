@@ -10,11 +10,17 @@ import store from "./store";
 import axios from "axios";
 import { getCrmSuccess } from "./actions/actions-crm";
 import { getCrmRequest } from "./actions/actions-crm";
-// import { Link, Route } from "react-router-dom";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  withRouter
+} from "react-router-dom";
 import LandingPage from "./components/landing-page";
 import { library } from "@fortawesome/fontawesome-svg-core";
-
+import Register from "./components/registration-page";
 import { faFire } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -53,7 +59,13 @@ export class App extends React.Component {
           </h1>
         </header>
         <main>
-          <Route path="/" component={LandingPage} />
+          <Router>
+            <div>
+              <Route path="/" component={LandingPage} />
+
+              <Route path="/main" component={CrmForm} />
+            </div>
+          </Router>
         </main>
       </div>
     );
@@ -72,4 +84,4 @@ const mapStateToProps = state => ({
   crm: state.crm
 });
 
-export default connect(mapStateToProps)(App);
+export default withRouter(connect(mapStateToProps)(App));
