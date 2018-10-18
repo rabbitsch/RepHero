@@ -9,9 +9,6 @@ import { authSuccess } from "./actions/actions-auth";
 
 const { API_BASE_URL } = require("./config");
 
-const USER_LOGIN_ATTEMPT = "USER_LOGIN_ATTEMPT";
-const USER_LOGIN_ATTEMPT_FAILURE = "USER_LOGIN_ATTEMPT_FAILURE";
-
 // - [ ] w/ username & password, start the login attempt
 //   - [ ] failure: unable to log you in; try again (redirect back to login page)
 //     - [ ] redirect back to login page
