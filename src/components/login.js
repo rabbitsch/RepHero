@@ -1,7 +1,13 @@
 import React from "react";
+import { connect } from "react-redux";
 import { reduxForm, Field } from "redux-form";
 import { postLoginData } from "../apiClients";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect
+} from "react-router-dom";
 import Register from "./registration-page";
 import store from "../store";
 import "./landing-page.css";
@@ -13,11 +19,10 @@ const handleSubmit = event => {
   return postLoginData({ username, password });
 };
 
-// if (props.loggedIn) {
-//         return <Redirect to="/main" />;
-//     }
-
-export const Login = () => {
+export const Login = props => {
+  if (props.loggedIn) {
+    return <Redirect to="/main" />;
+  }
   return (
     <form onSubmit={handleSubmit}>
       <div>
@@ -36,15 +41,9 @@ export const Login = () => {
   );
 };
 
-{
-  /* <Router>
-  <div>
-    <button>
-      <Link to="/register">Sign up</Link>
-    </button>
-    <Route exact path="/register" component={Register} />
-  </div>
-</Router> */
-}
+const mapStateToProps = state => ({
+  loggedIn: state.auth.currentUser !== null
+});
 
-export default reduxForm({ form: "login" })(Login);
+const Loginn = reduxForm({ form: "login" })(Login);
+export default connect(mapStateToProps)(Loginn);
