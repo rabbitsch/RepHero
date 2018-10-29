@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { reduxForm, Field } from "redux-form";
 import { postLoginData } from "../apiClients";
+import { loginAttemptAction } from "../actions/actions-auth";
 import {
   BrowserRouter as Router,
   Route,
@@ -19,10 +20,16 @@ const handleSubmit = event => {
   return postLoginData({ username, password });
 };
 
+// function propTest(props) {
+//   console.log(props, "this is my props bra");
+// }
+
 export const Login = props => {
-  if (props.loggedIn) {
+  console.log(props.hasAuthToken, "here is my props on login form");
+  if (props.hasAuthToken) {
     return <Redirect to="/main" />;
   }
+  console.log(props, "here is my props.loggedIn");
   return (
     <form onSubmit={handleSubmit}>
       <div>
@@ -41,9 +48,14 @@ export const Login = props => {
   );
 };
 
-const mapStateToProps = state => ({
-  loggedIn: state.auth.currentUser !== null
-});
+// const mapStateToProps = state => ({
+//   hasAuthToken: state.auth.authToken !== null
+// });
 
-const Loginn = reduxForm({ form: "login" })(Login);
-export default connect(mapStateToProps)(Loginn);
+const mapStateToProps = state => {
+  console.log("state on mapStateToProps:", state);
+  return { hasAuthToken: state.auth.authToken !== null };
+};
+
+// const Loginn = reduxForm({ form: "login" })(Login);
+export default connect(mapStateToProps)(Login);

@@ -1,3 +1,6 @@
+import axios from "axios";
+const { API_BASE_URL } = require("../config");
+
 export const SET_AUTH_TOKEN = "SET_AUTH_TOKEN";
 export const setAuthToken = authToken => ({
   type: SET_AUTH_TOKEN,
@@ -30,9 +33,11 @@ export const loginSuccess = success => ({
 
 export const LOGIN_ATTEMPT = "LOGIN_ATTEMPT";
 export const loginAttemptAction = ({ username, password }) => dispatch => {
+  console.log("Login Attempt action!!");
   axios
     .get(`${API_BASE_URL}/api/login`, { username, password })
-    .then(res => ({ data: { authToken } }))
+    // .then(res => ({ data: { authToken } }))
+    .then(res => res.data)
     .then(({ authToken }) => {
       !authToken
         ? dispatch(loginAttemptFailure({ message: "Login failure" }))
@@ -40,13 +45,13 @@ export const loginAttemptAction = ({ username, password }) => dispatch => {
     });
 };
 
-const LOGIN_ATTEMPT_FAILURE = "LOGIN_ATTEMPT_FAILURE";
+export const LOGIN_ATTEMPT_FAILURE = "LOGIN_ATTEMPT_FAILURE";
 export const loginAttemptFailure = error => ({
   type: LOGIN_ATTEMPT_FAILURE,
   error
 });
 
-const LOGIN_ATTEMPT_SUCCESS = "LOGIN_ATTEMPT_SUCCESS";
+export const LOGIN_ATTEMPT_SUCCESS = "LOGIN_ATTEMPT_SUCCESS";
 export const loginAttemptSuccess = authToken => ({
   type: LOGIN_ATTEMPT_SUCCESS,
   authToken

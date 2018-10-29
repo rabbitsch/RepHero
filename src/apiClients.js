@@ -6,6 +6,8 @@ import store from "./store";
 import { saveAuthToken } from "./localStorage";
 import { setAuthToken } from "./actions/actions-auth";
 import { authSuccess } from "./actions/actions-auth";
+import { loginAttemptSuccess } from "./actions/actions-auth";
+import { loginAttemptFailure } from "./actions/actions-auth";
 
 const { API_BASE_URL } = require("./config");
 
@@ -57,12 +59,19 @@ const putData = data => {
 //Post Login info
 const postLoginData = data => {
   console.log(data, "this is my post login data");
-  return axios
-    .post(`${API_BASE_URL}/api/login`, data)
-    .then(({ data: authToken }) => storeAuthInfo(authToken))
-    .catch(error => {
-      console.log(error);
-    });
+  return (
+    axios
+      .post(`${API_BASE_URL}/api/login`, data)
+      .then(({ data: authToken }) => storeAuthInfo(authToken))
+      // .then(({ authToken }) => {
+      //   !authToken
+      //     ? dispatch(loginAttemptFailure({ message: "Login failure" }))
+      //     : dispatch(loginAttemptSuccess({ authToken }));
+      // })
+      .catch(error => {
+        console.log(error);
+      })
+  );
 };
 
 //Post Registration info

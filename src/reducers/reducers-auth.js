@@ -1,7 +1,8 @@
 import {
   SET_AUTH_TOKEN,
   AUTH_SUCCESS,
-  USER_LOGIN_ATTEMPT_FAILURE
+  USER_LOGIN_ATTEMPT_FAILURE,
+  LOGIN_ATTEMPT_SUCCESS
 } from "../actions/actions-auth";
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
 };
 
 export const authReducer = (state = initialState, action) => {
+  console.log(action, "hello my auth reducer");
   if (action.type === SET_AUTH_TOKEN) {
     return Object.assign({}, state, {
       authToken: action.authToken
