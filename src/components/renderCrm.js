@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import CrmForm from "./crm-form";
 import { deleteData } from "../apiClients";
+import { putData } from "../apiClients";
 import store from "../store";
 import "../grid.css";
 import "./crmform.css";
@@ -32,6 +33,13 @@ export const RenderCrm = props => {
                   Goals for next visit:
                   {item.nextgoals}
                 </p>
+                <button
+                  onClick={event => {
+                    return putData(item.id);
+                  }}
+                >
+                  Update
+                </button>
                 <button
                   onClick={event => {
                     return deleteData(item.id);

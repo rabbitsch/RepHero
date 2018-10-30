@@ -50,7 +50,7 @@ export const deleteData = data => {
 };
 
 //Put Api Client
-const putData = data => {
+export const putData = data => {
   return axios
     .put(`${API_BASE_URL}/api/visits/${data}`, data)
     .then(res => res.data);

@@ -8,35 +8,44 @@ export let CrmForm = ({ handleSubmit }) => {
     <div>
       <div>
         <form className="crmformFace" onSubmit={handleSubmit(postData)}>
-          <div>
+          <div className="crmPost">
             <label className="crmlabel">Office Name</label>
             <Field name="office" component="input" type="text" label="office" />
           </div>
-          <div>
+          <div className="crmPost">
             <label className="crmlabel">Date</label>
-            <Field name="date" component="input" type="text" label="date" />
+            <Field
+              className="crmWrite"
+              name="date"
+              component="input"
+              type="text"
+              label="date"
+            />
           </div>
-          <div>
+          <div className="crmPost">
             <label className="crmlabel">Goals</label>
             <Field
+              className="crmWrite"
               name="goals"
               component="textarea"
               element="textarea"
               label="goals"
             />
           </div>
-          <div>
+          <div className="crmPost">
             <label className="crmlabel">Outcome</label>
             <Field
+              className="crmWrite"
               name="outcome"
               component="textarea"
               element="textarea"
               label="outcome"
             />
           </div>
-          <div>
+          <div className="crmPost">
             <label className="crmlabel">NextGoal</label>
             <Field
+              className="crmWrite"
               name="nextgoals"
               component="textarea"
               element="textarea"
