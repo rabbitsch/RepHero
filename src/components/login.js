@@ -21,12 +21,10 @@ const handleSubmit = event => {
 };
 
 export const Login = props => {
-  console.log(props, "here is my props on login form");
   if (props.hasAuthToken) {
-    //props.history.push("/main");
     return <Redirect to="/main" />;
   }
-  console.log(props, "here is my props.loggedIn");
+
   return (
     <form onSubmit={handleSubmit}>
       <div>

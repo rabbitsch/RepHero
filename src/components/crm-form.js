@@ -14,18 +14,11 @@ export let CrmForm = ({ handleSubmit }) => {
           </div>
           <div className="crmPost">
             <label className="crmlabel">Date</label>
-            <Field
-              className="crmWrite"
-              name="date"
-              component="input"
-              type="text"
-              label="date"
-            />
+            <Field name="date" component="input" type="text" label="date" />
           </div>
           <div className="crmPost">
             <label className="crmlabel">Goals</label>
             <Field
-              className="crmWrite"
               name="goals"
               component="textarea"
               element="textarea"
@@ -35,7 +28,6 @@ export let CrmForm = ({ handleSubmit }) => {
           <div className="crmPost">
             <label className="crmlabel">Outcome</label>
             <Field
-              className="crmWrite"
               name="outcome"
               component="textarea"
               element="textarea"
@@ -45,7 +37,6 @@ export let CrmForm = ({ handleSubmit }) => {
           <div className="crmPost">
             <label className="crmlabel">NextGoal</label>
             <Field
-              className="crmWrite"
               name="nextgoals"
               component="textarea"
               element="textarea"

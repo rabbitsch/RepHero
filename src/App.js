@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { NavBar } from "./components/navigation";
 import Input from "./components/input";
+import Main from "./components/main";
 
 import RenderDocData from "./components/renderDoctorinfo";
 import RenderCrm from "./components/renderCrm";
@@ -68,9 +69,8 @@ export class App extends React.Component {
           <Router>
             <div>
               <Route exact path="/" component={LandingPage} />
-
-              <Route exact path="/main" component={RenderDocData} />
-              <Route exact path="/main" component={RenderCrm} />
+              <Route path="/register" component={Register} />
+              <Route exact path="/main" component={Main} />
             </div>
           </Router>
         </main>
@@ -78,6 +78,9 @@ export class App extends React.Component {
     );
   }
 }
+
+// <Route exact path="/main" component={RenderDocData} />
+// <Route exact path="/main" component={RenderCrm} />
 
 //<Route path="/landing-page" component={LandingPage} />
 

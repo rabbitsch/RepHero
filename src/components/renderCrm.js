@@ -28,10 +28,12 @@ export const RenderCrm = props => {
                 <h2>Office Name: {item.office}</h2>
                 <h3>Date of visit: {item.date}</h3>
                 <p>Goals for visit: {item.goals}</p>
-                <p>Outcome: {item.outcome}</p>
+                <p>
+                  Outcome: <textarea />
+                </p>
                 <p>
                   Goals for next visit:
-                  {item.nextgoals}
+                  <textarea />
                 </p>
                 <button
                   onClick={event => {

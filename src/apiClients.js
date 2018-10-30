@@ -76,7 +76,10 @@ const postLoginData = data => {
 
 //Post Registration info
 const postRegData = data => {
-  return axios.post(`${API_BASE_URL}/api/users`, data).then(res => res.data);
+  return axios
+    .post(`${API_BASE_URL}/api/users`, data)
+    .then(res => res.data)
+    .then(info => store.dispatch(authSuccess(info)));
 };
 
 export { crmData, postData, postLoginData, postRegData };

@@ -1,6 +1,6 @@
 import React from "react";
 import { reduxForm, Field } from "redux-form";
-import { Login } from "./login";
+import Login from "./login";
 import "./landing-page.css";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
@@ -60,15 +60,7 @@ export class LandingPage extends React.Component {
 
           <div className="col-5">
             <div className="login-face">
-              <Switch>
-                <Router>
-                  <div>
-                    <Route exact path="/" component={Login} />
-
-                    <Route exact path="/register" component={Register} />
-                  </div>
-                </Router>
-              </Switch>
+              <Login />
             </div>
           </div>
         </div>
@@ -77,12 +69,15 @@ export class LandingPage extends React.Component {
   }
 }
 
-{
-  /* <Login
-  onSubmit={this.props.handleSubmit(values => {
-    this.onSubmit(values);
-  })}
-/> */
-}
+// <Switch>
+//   <Router>
+//     <div>
+//       <Route exact path="/" component={Login} />
+//       <Login />
+//
+//       <Route exact path="/register" component={Register} />
+//     </div>
+//   </Router>
+// </Switch>
 
 export default reduxForm({ form: "contact" })(LandingPage);

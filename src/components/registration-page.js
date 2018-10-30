@@ -1,12 +1,32 @@
 import React from "react";
 import { reduxForm, Field } from "redux-form";
+import { connect } from "react-redux";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect
+} from "react-router-dom";
 import { postRegData } from "../apiClients";
 
-const Register = ({ handleSubmit }) => {
+const handleSubmit = event => {
+  event.preventDefault();
+  const username = event.target.elements.username.value;
+  const password = event.target.elements.password.value;
+  const firstname = event.target.elements.firstname.value;
+  const lastname = event.target.elements.lastname.value;
+  return postRegData({ username, password, firstname, lastname });
+};
+
+const Register = props => {
+  if (props.newUser) {
+    console.log(props, "here is my register props");
+    return <Redirect to="/main" />;
+  }
   return (
     <div>
       <div>
-        <form onSubmit={handleSubmit(postRegData)}>
+        <form onSubmit={handleSubmit}>
           <div>
             <label>Username</label>
             <Field
@@ -50,4 +70,9 @@ const Register = ({ handleSubmit }) => {
   );
 };
 
-export default reduxForm({ form: "contact" })(Register);
+const mapStateToProps = state => ({
+  newUser: state.auth.currentUser !== null
+});
+
+const Regy = reduxForm({ form: "contact" })(Register);
+export default connect(mapStateToProps)(Regy);
