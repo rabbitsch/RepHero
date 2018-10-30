@@ -2,8 +2,29 @@
   border-style: solid;
   border-width: medium;
   border-color: black;
+  margin-top: 25px;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding-bottom: 25px;
 }
 
 li {
   list-style-type: none;
+}
+
+.docsearchAgain {
+  border-style: solid;
+  border-width: medium;
+  border-color: black;
+  margin-top: 25px;
+  background-color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 25px;
+}
+
+.doc-container1 {
+  border-style: solid;
+  border-width: medium;
+  border-color: black;
+  margin-top: 25px;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding-bottom: 25px;
 }

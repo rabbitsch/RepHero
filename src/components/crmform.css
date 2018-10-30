@@ -1,0 +1,19 @@
+.crmlabel {
+  color: black;
+}
+
+.crmformFace {
+  border-style: solid;
+  border-width: medium;
+  border-color: black;
+  margin-top: 25px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.crmContainer {
+  border-style: solid;
+  border-width: medium;
+  border-color: black;
+  margin-top: 25px;
+  background-color: rgba(255, 255, 255, 0.7);
+}

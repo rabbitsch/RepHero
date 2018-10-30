@@ -20,13 +20,10 @@ const handleSubmit = event => {
   return postLoginData({ username, password });
 };
 
-// function propTest(props) {
-//   console.log(props, "this is my props bra");
-// }
-
 export const Login = props => {
-  console.log(props.hasAuthToken, "here is my props on login form");
+  console.log(props, "here is my props on login form");
   if (props.hasAuthToken) {
+    //props.history.push("/main");
     return <Redirect to="/main" />;
   }
   console.log(props, "here is my props.loggedIn");
@@ -48,14 +45,14 @@ export const Login = props => {
   );
 };
 
-// const mapStateToProps = state => ({
-//   hasAuthToken: state.auth.authToken !== null
-// });
+const mapStateToProps = state => ({
+  hasAuthToken: state.auth.authToken !== null
+});
 
-const mapStateToProps = state => {
-  console.log("state on mapStateToProps:", state);
-  return { hasAuthToken: state.auth.authToken !== null };
-};
+// const mapStateToProps = state => {
+//   console.log("state on mapStateToProps:", state);
+//   return { hasAuthToken: state.auth.authToken !== null };
+// };
 
 // const Loginn = reduxForm({ form: "login" })(Login);
 export default connect(mapStateToProps)(Login);

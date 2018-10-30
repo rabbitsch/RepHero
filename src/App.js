@@ -35,9 +35,15 @@ export class App extends React.Component {
     super(props);
     this.state = {
       crm: [],
-      loading: false
+      loading: false,
+      authToken: null
     };
   }
+
+  //console.log(this.props, "here is my props on app js");
+  // if (this.props.hasAuthToken) {
+  //   return <Redirect to="/main" />;
+  // }
 
   componentDidMount() {
     // store.dispatch(getCrmRequest({ loading: true }), () => {
@@ -61,9 +67,10 @@ export class App extends React.Component {
         <main>
           <Router>
             <div>
-              <Route path="/" component={LandingPage} />
+              <Route exact path="/" component={LandingPage} />
 
-              <Route path="/main" component={CrmForm} />
+              <Route exact path="/main" component={RenderDocData} />
+              <Route exact path="/main" component={RenderCrm} />
             </div>
           </Router>
         </main>
@@ -76,12 +83,19 @@ export class App extends React.Component {
 
 App.defaultProps = {
   practice: [],
-  crm: []
+  crm: [],
+  hasAuthToken: null
 };
+
+// const mapStateToProps = state => {
+//   console.log("state on mapStateToProps:", state);
+//   return { hasAuthToken: state.auth.authToken !== null };
+// };
 
 const mapStateToProps = state => ({
   practice: state.practice,
-  crm: state.crm
+  crm: state.crm,
+  hasAuthToken: state.auth.authToken !== null
 });
 
 export default withRouter(connect(mapStateToProps)(App));

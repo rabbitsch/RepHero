@@ -14,16 +14,20 @@ export const Input = props => {
   };
 
   return (
-    <div className="inputface">
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="search"
-          onChange={props.onChange}
-          placeholder="Type Targeted Medical Practice Here"
-        />
-        <button type="submit">Submit Your Answer</button>
-      </form>
+    <div className="row">
+      <div className="col-10 offset-1">
+        <div className="inputface">
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="search"
+              onChange={props.onChange}
+              placeholder="Type Targeted Medical Practice Here"
+            />
+            <button type="submit">Submit Your Answer</button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };

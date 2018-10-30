@@ -4,6 +4,7 @@ import CrmForm from "./crm-form";
 import { deleteData } from "../apiClients";
 import store from "../store";
 import "../grid.css";
+import "./crmform.css";
 
 export const RenderCrm = props => {
   console.log({ props }, "this is my render crm props");
