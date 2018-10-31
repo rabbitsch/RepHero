@@ -6,7 +6,7 @@ import Main from "./components/main";
 
 import RenderDocData from "./components/renderDoctorinfo";
 import RenderCrm from "./components/renderCrm";
-import CrmForm from "./components/crm-form";
+import CrmForm from "./components/crm-form-officetitle";
 import store from "./store";
 import axios from "axios";
 import { getCrmSuccess } from "./actions/actions-crm";

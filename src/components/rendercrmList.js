@@ -2,7 +2,6 @@ import React from "react";
 import { Scrollbars } from "react-custom-scrollbars";
 import { connect } from "react-redux";
 import CrmForm from "./crm-form-officetitle";
-import RenderCrmList from "./rendercrmList";
 import { deleteData } from "../apiClients";
 import { putData } from "../apiClients";
 import store from "../store";
@@ -10,7 +9,7 @@ import CrmFormpt2 from "./crmformpt2";
 import "../grid.css";
 import "./crmform.css";
 
-export const RenderCrm = props => {
+export const RenderCrmList = props => {
   console.log({ props }, "this is my render crm props");
 
   const extracted = props.crm;
@@ -21,14 +20,15 @@ export const RenderCrm = props => {
   console.log(extracted, "this is extracted");
 
   return (
-    <div>
-      <div className="crmcontent">
-        <CrmForm />
+    <div className="crmList">
+      <Scrollbars style={{ width: 500, height: 300 }}>
         <ul>
+          <CrmFormpt2 />
           {extracted.map(item => (
             <li key={item.uid}>
-              <h2>Office Name: {item.office}</h2>
-
+              <h3>Date of visit: {item.date}</h3>
+              <p>Goals for visit: {item.goals}</p>
+              <p> Outcome : {item.outcome}</p>
               <button
                 onClick={event => {
                   return putData(item.id);
@@ -43,11 +43,10 @@ export const RenderCrm = props => {
               >
                 Delete
               </button>
-              <RenderCrmList />
             </li>
           ))}
         </ul>
-      </div>
+      </Scrollbars>
     </div>
   );
 };
@@ -55,4 +54,4 @@ const mapStateToProps = state => {
   return { crm: state.reducer.crm };
 };
 
-export default connect(mapStateToProps)(RenderCrm);
+export default connect(mapStateToProps)(RenderCrmList);

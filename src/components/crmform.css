@@ -3,6 +3,16 @@
   /* text-align: center; */
 }
 
+.crmformOffice {
+  border-style: solid;
+  border-width: medium;
+  border-color: black;
+  margin-top: 25px;
+  border-radius: 15%;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding-bottom: 20px;
+}
+
 .crmformFace {
   border-style: solid;
   border-width: medium;
@@ -15,10 +25,19 @@
   border-style: solid;
   border-width: medium;
   border-color: black;
+
   margin-top: 25px;
   background-color: rgba(255, 255, 255, 0.7);
 }
 
+.crmList {
+  border-style: solid;
+  border-width: medium;
+  border-color: black;
+  margin-top: 25px;
+  background-color: rgba(255, 255, 255, 0.7);
+  margin-right: 30px;
+}
 /* .crmPost {
   text-align: left;
 } */

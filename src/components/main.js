@@ -8,7 +8,7 @@ import {
   withRouter
 } from "react-router-dom";
 import RenderDocData from "./renderDoctorinfo";
-import RenderCrm from "./renderCrm";
+import CrmContainer from "./containerCrm";
 
 export const Main = props => {
   return (
@@ -16,7 +16,7 @@ export const Main = props => {
       <header className="Main-header" />
       <main>
         <RenderDocData />
-        <RenderCrm />
+        <CrmContainer />
       </main>
     </div>
   );

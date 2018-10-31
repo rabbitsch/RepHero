@@ -3,15 +3,11 @@ import { postData } from "../apiClients";
 import { reduxForm, Field } from "redux-form";
 import "./crmform.css";
 
-export let CrmForm = ({ handleSubmit }) => {
+export let CrmFormpt2 = ({ handleSubmit }) => {
   return (
     <div>
       <div>
-        <form className="crmformFace" onSubmit={handleSubmit(postData)}>
-          <div className="crmPost">
-            <label className="crmlabel">Office Name</label>
-            <Field name="office" component="input" type="text" label="office" />
-          </div>
+        <form className="crmformFacept2" onSubmit={handleSubmit(postData)}>
           <div className="crmPost">
             <label className="crmlabel">Date</label>
             <Field name="date" component="input" type="text" label="date" />
@@ -34,15 +30,7 @@ export let CrmForm = ({ handleSubmit }) => {
               label="outcome"
             />
           </div>
-          <div className="crmPost">
-            <label className="crmlabel">NextGoal</label>
-            <Field
-              name="nextgoals"
-              component="textarea"
-              element="textarea"
-              label="nextgoals"
-            />
-          </div>
+
           <button type="submit">Submit</button>
         </form>
       </div>
@@ -50,4 +38,14 @@ export let CrmForm = ({ handleSubmit }) => {
   );
 };
 
-export default reduxForm({ form: "contact" })(CrmForm);
+// <div className="crmPost">
+//   <label className="crmlabel">NextGoal</label>
+//   <Field
+//     name="nextgoals"
+//     component="textarea"
+//     element="textarea"
+//     label="nextgoals"
+//   />
+// </div>
+
+export default reduxForm({ form: "contact" })(CrmFormpt2);
