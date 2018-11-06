@@ -10,6 +10,7 @@ import CrmForm from "./components/crm-form-officetitle";
 import store from "./store";
 import axios from "axios";
 import { getCrmSuccess } from "./actions/actions-crm";
+import { getContentSuccess } from "./actions/actions-crm";
 import { getCrmRequest } from "./actions/actions-crm";
 
 import {
@@ -47,9 +48,12 @@ export class App extends React.Component {
   // }
 
   componentDidMount() {
-    // store.dispatch(getCrmRequest({ loading: true }), () => {
     axios
       .get(`${API_BASE_URL}/api/visits`)
+      .then(res => res.data)
+      .then(crm => store.dispatch(getContentSuccess(crm)));
+    axios
+      .get(`${API_BASE_URL}/api/offices`)
       .then(res => res.data)
       .then(crm => store.dispatch(getCrmSuccess(crm)));
   }

@@ -7,12 +7,14 @@ import {
 import {
   GET_CRM_SUCCESS,
   UPDATE_CRM,
-  DELETE_CRM
+  DELETE_CRM,
+  GET_CONTENT_SUCCESS
 } from "../actions/actions-crm";
 
 const initialState = {
   practice: [],
   crm: [],
+  content: [],
   loading: false,
   error: null
 };
@@ -37,6 +39,12 @@ export const practiceReducer = (state = initialState, action) => {
   } else if (action.type === GET_CRM_SUCCESS) {
     return Object.assign({}, state, {
       crm: action.crm,
+      loading: false,
+      error: null
+    });
+  } else if (action.type === GET_CONTENT_SUCCESS) {
+    return Object.assign({}, state, {
+      content: action.content,
       loading: false,
       error: null
     });

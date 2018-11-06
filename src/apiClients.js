@@ -42,6 +42,10 @@ const postData = data => {
   return axios.post(`${API_BASE_URL}/api/visits`, data).then(res => res.data);
 };
 
+const postOfficeTitle = data => {
+  return axios.post(`${API_BASE_URL}/api/offices`, data).then(res => res.data);
+};
+
 //Delete Api Client
 export const deleteData = data => {
   return axios
@@ -82,4 +86,4 @@ const postRegData = data => {
     .then(info => store.dispatch(authSuccess(info)));
 };
 
-export { crmData, postData, postLoginData, postRegData };
+export { crmData, postData, postLoginData, postRegData, postOfficeTitle };

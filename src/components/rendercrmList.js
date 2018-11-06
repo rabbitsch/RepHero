@@ -10,48 +10,52 @@ import "../grid.css";
 import "./crmform.css";
 
 export const RenderCrmList = props => {
-  console.log({ props }, "this is my render crm props");
+  //console.log({ props }, "this is my render content props");
 
-  const extracted = props.crm;
+  const extracted = props.content;
   if (!extracted) {
-    return <p>Get CRM</p>;
+    return <p>Get Content</p>;
   }
 
-  console.log(extracted, "this is extracted");
+  //  console.log(extracted, "this is extracted, CONTENT");
+
+  //return <pre>${JSON.stringify(extracted)}</pre>;
 
   return (
     <div className="crmList">
       <Scrollbars style={{ width: 500, height: 300 }}>
         <ul>
           <CrmFormpt2 />
-          {extracted.map(item => (
-            <li key={item.uid}>
-              <h3>Date of visit: {item.date}</h3>
-              <p>Goals for visit: {item.goals}</p>
-              <p> Outcome : {item.outcome}</p>
-              <button
-                onClick={event => {
-                  return putData(item.id);
-                }}
-              >
-                Update
-              </button>
-              <button
-                onClick={event => {
-                  return deleteData(item.id);
-                }}
-              >
-                Delete
-              </button>
-            </li>
-          ))}
+          {extracted.map(item => {
+            return (
+              <li key={item.uid}>
+                <h3>Date of visit: {item.date}</h3>
+                <p>Goals for visit: {item.goals}</p>
+                <p> Outcome : {item.outcome}</p>
+                <button
+                  onClick={event => {
+                    return putData(item.id);
+                  }}
+                >
+                  Update
+                </button>
+                <button
+                  onClick={event => {
+                    return deleteData(item.id);
+                  }}
+                >
+                  Delete
+                </button>
+              </li>
+            );
+          })}
         </ul>
       </Scrollbars>
     </div>
   );
 };
 const mapStateToProps = state => {
-  return { crm: state.reducer.crm };
+  return { content: state.reducer.content };
 };
 
 export default connect(mapStateToProps)(RenderCrmList);

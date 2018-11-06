@@ -10,6 +10,12 @@ export const getCrmSuccess = crm => ({
   crm
 });
 
+export const GET_CONTENT_SUCCESS = "GET_CONTENT_SUCCESS";
+export const getContentSuccess = content => ({
+  type: GET_CONTENT_SUCCESS,
+  content
+});
+
 export const GET_CRM_ERROR = "SEARCH_CRM_ERROR";
 export const getCrmError = error => ({
   type: GET_CRM_ERROR,

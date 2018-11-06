@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { searchPractice } from "../actions/actions-doc";
+import { searchLocation } from "../actions/actions-doc";
 import store from "../store";
 
 export const Input = props => {
@@ -8,9 +9,12 @@ export const Input = props => {
     event.preventDefault();
 
     const newSearch = event.target.elements.search.value;
+    //const newSearchlocation = event.target.elements.searchloc.value;
 
+    //const submitLocation = searchLocation(newSearchlocation);
     const submitSearch = searchPractice(newSearch);
     store.dispatch(submitSearch);
+    //store.dispatch(submitLocation);
   };
 
   return (
@@ -24,6 +28,7 @@ export const Input = props => {
               onChange={props.onChange}
               placeholder="Type Targeted Medical Practice Here"
             />
+
             <button type="submit">Submit Your Answer</button>
           </form>
         </div>
@@ -31,5 +36,12 @@ export const Input = props => {
     </div>
   );
 };
+
+// <input
+//   type="text"
+//   name="searchloc"
+//   onChange={props.onChange}
+//   placeholder="Type Location here"
+// />
 
 export default connect()(Input);

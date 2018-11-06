@@ -11,8 +11,6 @@ import "../grid.css";
 import "./crmform.css";
 
 export const RenderCrm = props => {
-  console.log({ props }, "this is my render crm props");
-
   const extracted = props.crm;
   if (!extracted) {
     return <p>Get CRM</p>;
@@ -27,7 +25,7 @@ export const RenderCrm = props => {
         <ul>
           {extracted.map(item => (
             <li key={item.uid}>
-              <h2>Office Name: {item.office}</h2>
+              <h2>Office Name: {item.title}</h2>
 
               <button
                 onClick={event => {
