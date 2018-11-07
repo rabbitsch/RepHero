@@ -1,13 +1,49 @@
 import React from "react";
+import { connect } from "react-redux";
 import { postData } from "../apiClients";
 import { reduxForm, Field } from "redux-form";
 import "./crmform.css";
 
-export let CrmFormpt2 = ({ handleSubmit }) => {
+// const officeIder = props => {
+//   console.log({ props }, "this is my render office id props");
+//
+//   const extracted = props.crm;
+//   if (!extracted) {
+//     return <p>Get crm id</p>;
+//   }
+//
+//   console.log(extracted, "this is my office id");
+// };
+
+export let CrmFormpt2 = props => {
+  //   console.log({ props }, "this is my post form props");
+
+  const extracted = props.crm;
+
+  const nextExt = extracted.map((data, index) => {
+    return data.id;
+  });
+
+  const anotherExt = nextExt.map(data => {
+    return data;
+  });
+
+  console.log(anotherExt[0], "this is my id");
+
+  //  console.log(extracted., "this is my extracted form post >>>>>>");
+
+  if (!extracted) {
+    return <p>Get Content</p>;
+    //  console.log(extracted, "this is my extracted form post >>>>>>");
+  }
+
   return (
     <div>
       <div>
-        <form className="crmformFacept2" onSubmit={handleSubmit(postData)}>
+        <form
+          className="crmformFacept2"
+          onSubmit={props.handleSubmit(postData)}
+        >
           <div className="crmPost">
             <label className="crmlabel">Date</label>
             <Field name="date" component="input" type="text" label="date" />
@@ -48,4 +84,9 @@ export let CrmFormpt2 = ({ handleSubmit }) => {
 //   />
 // </div>
 
-export default reduxForm({ form: "contact" })(CrmFormpt2);
+const mapStateToProps = state => {
+  return { content: state.reducer.content, crm: state.reducer.crm };
+};
+
+const CrmForming = reduxForm({ form: "contact" })(CrmFormpt2);
+export default connect(mapStateToProps)(CrmForming);

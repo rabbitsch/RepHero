@@ -55,7 +55,7 @@ export const RenderCrmList = props => {
   );
 };
 const mapStateToProps = state => {
-  return { content: state.reducer.content };
+  return { content: state.reducer.content, crm: state.reducer.crm };
 };
 
 export default connect(mapStateToProps)(RenderCrmList);
