@@ -4,45 +4,38 @@ import { postData } from "../apiClients";
 import { reduxForm, Field } from "redux-form";
 import "./crmform.css";
 
-// const officeIder = props => {
-//   console.log({ props }, "this is my render office id props");
-//
-//   const extracted = props.crm;
-//   if (!extracted) {
-//     return <p>Get crm id</p>;
-//   }
-//
-//   console.log(extracted, "this is my office id");
-// };
-
 export let CrmFormpt2 = props => {
-  //   console.log({ props }, "this is my post form props");
-
-  const extracted = props.crm;
-
-  const nextExt = extracted.map((data, index) => {
-    return data.id;
-  });
-
-  const anotherExt = nextExt.map(data => {
-    return data;
-  });
-
-  console.log(anotherExt[0], "this is my id");
+  console.log({ props }, "this is my post form props");
+  //
+  // const extracted = props.crm;
+  //
+  // const nextExt = extracted.map((data, index) => {
+  //   return data.id;
+  // });
+  //
+  // // const anotherExt = nextExt.map(data => {
+  // //   return data;
+  // // });
+  //
+  // console.log(nextExt, "this is my id");
 
   //  console.log(extracted., "this is my extracted form post >>>>>>");
-
-  if (!extracted) {
-    return <p>Get Content</p>;
-    //  console.log(extracted, "this is my extracted form post >>>>>>");
-  }
+  //
+  // if (!extracted) {
+  //   return <p>Get Content</p>;
+  //   //  console.log(extracted, "this is my extracted form post >>>>>>");
+  // }
 
   return (
     <div>
       <div>
         <form
           className="crmformFacept2"
-          onSubmit={props.handleSubmit(postData)}
+          onSubmit={props.handleSubmit(data => {
+            data.office = props.office.id;
+
+            return postData(data);
+          })}
         >
           <div className="crmPost">
             <label className="crmlabel">Date</label>
@@ -66,7 +59,6 @@ export let CrmFormpt2 = props => {
               label="outcome"
             />
           </div>
-
           <button type="submit">Submit</button>
         </form>
       </div>
@@ -88,5 +80,5 @@ const mapStateToProps = state => {
   return { content: state.reducer.content, crm: state.reducer.crm };
 };
 
-const CrmForming = reduxForm({ form: "contact" })(CrmFormpt2);
+const CrmForming = reduxForm({ form: "visitPost" })(CrmFormpt2);
 export default connect(mapStateToProps)(CrmForming);

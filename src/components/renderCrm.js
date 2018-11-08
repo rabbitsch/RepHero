@@ -16,7 +16,7 @@ export const RenderCrm = props => {
     return <p>Get CRM</p>;
   }
 
-  console.log(extracted, "this is extracted");
+  //  console.log(extracted, "this is extracted");
 
   return (
     <div>
@@ -26,6 +26,8 @@ export const RenderCrm = props => {
           {extracted.map(item => (
             <li key={item.uid}>
               <h2>Office Name: {item.title}</h2>
+
+              <CrmFormpt2 office={item} />
 
               <button
                 onClick={event => {

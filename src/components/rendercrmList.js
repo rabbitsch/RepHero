@@ -10,7 +10,7 @@ import "../grid.css";
 import "./crmform.css";
 
 export const RenderCrmList = props => {
-  //console.log({ props }, "this is my render content props");
+  console.log({ props }, "this is my render content props");
 
   const extracted = props.content;
   if (!extracted) {
@@ -25,7 +25,6 @@ export const RenderCrmList = props => {
     <div className="crmList">
       <Scrollbars style={{ width: 500, height: 300 }}>
         <ul>
-          <CrmFormpt2 />
           {extracted.map(item => {
             return (
               <li key={item.uid}>
