@@ -1,30 +1,23 @@
 import React from "react";
 import thunk from "redux-thunk";
+import axios from "axios";
+import store from "./store";
 
 const { API_BASE_URL } = require("./config");
 
-const doctorData = search => {
-  console.log({ search });
+const doctorData = ({ name, location }) => {
+  console.log("doctorData:", { name, location });
 
-  console.log(search, "this is my doctor data search result");
-
-  const url = new URL(`${API_BASE_URL}/doc`);
   const searchParams = {
-    name: search
+    name: name,
+    location: location
   };
-  Object.keys(searchParams).forEach(key => {
-    url.searchParams.append(key, searchParams[key]);
-  });
 
-  return fetch(url, {
-    method: "GET",
-    query: search,
-    headers: {
-      "Content-Type": "application/JSON"
-    }
-  }).then(res => {
-    return res.json(); //THIS is what brought in the DATA
-  });
+  return axios
+    .get(`${API_BASE_URL}/doc`, {
+      params: searchParams
+    })
+    .then(payload => payload.data);
 };
 
 export { doctorData };

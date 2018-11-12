@@ -3,6 +3,10 @@
   /* text-align: center; */
 }
 
+.crmformFacept2 {
+  border-radius: 20%;
+}
+
 .crmformOffice {
   border-style: solid;
   border-width: medium;
@@ -11,6 +15,17 @@
   border-radius: 15%;
   background-color: rgba(255, 255, 255, 0.7);
   padding-bottom: 20px;
+}
+
+.officeTitle {
+  border-color: black;
+  margin-top: 25px;
+
+  padding-bottom: 20px;
+  padding-top: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-style: solid;
+  font-size: 25px;
 }
 
 .crmformFace {
@@ -37,6 +52,7 @@
   margin-top: 25px;
   background-color: rgba(255, 255, 255, 0.7);
   margin-right: 30px;
+  margin-left: 30px;
 }
 /* .crmPost {
   text-align: left;

@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { NavBar } from "./components/navigation";
-import Input from "./components/input";
+
 import Main from "./components/main";
 
 import RenderDocData from "./components/renderDoctorinfo";
@@ -41,11 +41,6 @@ export class App extends React.Component {
       authToken: null
     };
   }
-
-  //console.log(this.props, "here is my props on app js");
-  // if (this.props.hasAuthToken) {
-  //   return <Redirect to="/main" />;
-  // }
 
   componentDidMount() {
     axios

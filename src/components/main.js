@@ -7,9 +7,10 @@ import {
   Switch,
   withRouter
 } from "react-router-dom";
+import MainPage from "./MainPage";
 import RenderDocData from "./renderDoctorinfo";
 import CrmContainer from "./containerCrm";
-
+import OfficeSearchForm from "./OfficeSearchForm";
 export const Main = props => {
   return (
     <div className="Main">
@@ -21,5 +22,10 @@ export const Main = props => {
     </div>
   );
 };
+
+//  <CrmContainer />
+
+// <MainPage />
+// <hr />
 
 export default connect()(Main);

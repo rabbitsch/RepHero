@@ -10,7 +10,7 @@ import "../grid.css";
 import "./crmform.css";
 
 export const RenderCrmList = props => {
-  console.log({ props }, "this is my render content props");
+  //console.log({ props }, "this is my render content props");
 
   const extracted = props.content;
   if (!extracted) {

@@ -5,22 +5,9 @@ import { reduxForm, Field } from "redux-form";
 import "./crmform.css";
 
 export let CrmFormpt2 = props => {
-  console.log({ props }, "this is my post form props");
-  //
+  //console.log({ props }, "this is my post form props");
   // const extracted = props.crm;
-  //
-  // const nextExt = extracted.map((data, index) => {
-  //   return data.id;
-  // });
-  //
-  // // const anotherExt = nextExt.map(data => {
-  // //   return data;
-  // // });
-  //
-  // console.log(nextExt, "this is my id");
 
-  //  console.log(extracted., "this is my extracted form post >>>>>>");
-  //
   // if (!extracted) {
   //   return <p>Get Content</p>;
   //   //  console.log(extracted, "this is my extracted form post >>>>>>");

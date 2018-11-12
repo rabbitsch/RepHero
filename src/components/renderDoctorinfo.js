@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import store from "../store";
-import Input from "./input";
+
+import OfficeSearchForm from "./OfficeSearchForm";
 import "./doctorinfo.css";
 import "../grid.css";
 
@@ -9,7 +10,7 @@ export const RenderDocData = props => {
   console.log({ props });
   // return <p>Soon.</p>;
   console.log(props, "this is my props");
-  const { data } = props.practice;
+  const data = props.practice;
 
   console.log(data, "this is my data from renderdoc");
 
@@ -19,7 +20,7 @@ export const RenderDocData = props => {
       <div className="col-5 offset-1">
         <div className="doc-container1">
           <h3>Search for Doctor Information.</h3>
-          <Input />
+          <OfficeSearchForm />
         </div>
       </div>
     );
@@ -33,7 +34,7 @@ export const RenderDocData = props => {
           <div className="doc-container">
             <div className="docsearchAgain">
               <h3> Search another specialty</h3>
-              <Input />
+              <OfficeSearchForm />
             </div>
             <ul>
               {data.map(item => (
