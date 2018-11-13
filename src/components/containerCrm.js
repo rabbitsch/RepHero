@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import MainPage from "./MainPage";
 import CrmForm from "./crm-form-officetitle";
 
-import RenderCrm from "./renderCrm";
 import "./crmform.css";
 
 export const CrmContainer = props => {

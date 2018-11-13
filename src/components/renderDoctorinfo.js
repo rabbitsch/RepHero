@@ -33,10 +33,10 @@ export const RenderDocData = props => {
         <div className="col-5 offset-1">
           <div className="doc-container">
             <div className="docsearchAgain">
-              <h3> Search another specialty</h3>
+              <h3> Search For Specialty</h3>
               <OfficeSearchForm />
             </div>
-            <ul>
+            <ul className="docContent">
               {data.map(item => (
                 <li key={item.uid}>
                   <h2>{item.name}</h2>

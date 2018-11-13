@@ -46,10 +46,17 @@ const postOfficeTitle = data => {
   return axios.post(`${API_BASE_URL}/api/offices`, data).then(res => res.data);
 };
 
-//Delete Api Client
+//Delete Api Visit Client
 export const deleteData = data => {
   return axios
     .delete(`${API_BASE_URL}/api/visits/${data}`)
+    .then(res => res.data);
+};
+
+//Delete Api Office Client
+export const deleteDataOffice = data => {
+  return axios
+    .delete(`${API_BASE_URL}/api/offices/${data}`)
     .then(res => res.data);
 };
 

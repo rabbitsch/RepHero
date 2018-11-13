@@ -20,11 +20,11 @@ export const NewVisitForm = props => {
         }}
       >
         <div className="crmPost">
-          <label className="crmlabel">Date</label>
+          <label className="crmlabel">Date :</label>
           <input type="date" name="date" component="input" label="date" />
         </div>
         <div className="crmPost">
-          <label className="crmlabel">Goals</label>
+          <label className="crmlabel">Goals :</label>
           <input
             name="goals"
             component="textarea"
@@ -33,7 +33,7 @@ export const NewVisitForm = props => {
           />
         </div>
         <div className="crmPost">
-          <label className="crmlabel">Outcome</label>
+          <label className="crmlabel">Outcome :</label>
           <input
             name="outcome"
             component="textarea"

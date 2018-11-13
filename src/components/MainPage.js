@@ -6,7 +6,7 @@ import { deleteData } from "../apiClients";
 import { putData } from "../apiClients";
 import { postData } from "../apiClients";
 import store from "../store";
-import CrmFormpt2 from "./crmformpt2";
+
 import "../grid.css";
 import "./crmform.css";
 
